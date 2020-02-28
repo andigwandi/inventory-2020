@@ -31,6 +31,9 @@ app.get("/", function(req, res) {
 });
 
 app.use("/api/v1/inventory", require("./api/v1/inventory"));
+app.use("/api/v1/department", require("./api/v1/department"));
 
 
-server.listen(PORT, () => console.log(` Listening on PORT ${PORT}`));
+server.listen(PORT, () => {
+    return console.log(` Listening on PORT ${PORT}`);
+});
