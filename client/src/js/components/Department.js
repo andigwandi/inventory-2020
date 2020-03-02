@@ -88,7 +88,7 @@ class Department extends Component {
                                 placeholder="Name"
                                 onChange={this.handleName}
                                 className="form-control"
-                                value={newName}
+                                value={this.state.name}
                             />
                             </div>
                         </div>

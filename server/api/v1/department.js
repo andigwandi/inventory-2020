@@ -41,6 +41,15 @@ app.get("/departments", function (req, res) {
 });
 
 
+// GET all active department departments
+app.get("/departments/active", function (req, res) {
+  departmentDB.find({active: true}, function (err, docs) {
+    console.log("sending all active departments");
+    res.send(docs);
+  });
+});
+
+
 // post department department
 app.post("/department", function (req, res) {
   var newdepartment = req.body;
