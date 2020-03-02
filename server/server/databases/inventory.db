@@ -1,6 +1,3 @@
-{"name":"asdfasd","price":12,"quantity":100,"_id":"3fD5ZCB5AaTqZSl3"}
-{"name":"somasdasdffename","price":12,"quantity":100,"_id":"DtvbRDEc6S7Bslas"}
-{"name":"asdfasd","price":12,"quantity":100,"expdate":1582871270,"_id":"RQbhdKZkrZgrvbqu"}
-{"name":"somename","price":12,"quantity":100,"_id":"t19Ipf7ZXDifAIUj"}
-{"name":"somasdfename","price":12,"quantity":100,"_id":"tE8mtbMDYP6yG8Mz"}
-{"name":"bar","price":3,"quantity":100,"expdate":1582871270,"_id":"0UQJcCSYqTj7XhXE"}
+{"barcode":"123234","name":"asdfasd","quantity":"11","price":"1","_id":"6mNBgOjg5BSIxg0d"}
+{"barcode":"1231231","name":"sdfsdf","quantity":"333","price":"12","expdate":"2020-03-25","_id":"7FgpWsYATVGpszfL"}
+{"barcode":"534545345","name":"sdgfsef","quantity":"1111","price":"11","expdate":"2020-03-25","_id":"SzSz3J8zhYP4QAus"}

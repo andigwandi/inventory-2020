@@ -25,6 +25,7 @@ app.get("/product/:productId", function(req, res) {
       res.status(500).send("ID field is required.");
     } else {
       inventoryDB.findOne({ _id: req.params.productId }, function(err, product) {
+        console.log("sending product" + req.params.productId);
         res.send(product);
       });
     }
@@ -50,7 +51,6 @@ app.get("/product/:productId", function(req, res) {
 // post inventory product
 app.post("/product", function(req, res) {
     var newProduct = req.body;
-  
     inventoryDB.insert(newProduct, function(err, product) {
       if (err) res.status(500).send(err);
       else res.send(product);
