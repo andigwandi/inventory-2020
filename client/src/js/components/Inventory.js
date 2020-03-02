@@ -13,6 +13,7 @@ class Inventory extends Component {
 
     this.state = {
       products: [],
+      departments: [],
       productFormModal: false,
       barcode: 0,
       name: "",
@@ -38,6 +39,11 @@ class Inventory extends Component {
       this.setState({ products: response.data });
     });
 
+    var url2 = HOST + `/api/v1/department/departments`;
+    axios.get(url2).then(response => {
+      this.setState({ departments: response.data });
+    });
+    
   }
   handleNewProduct = e => {
     e.preventDefault();
