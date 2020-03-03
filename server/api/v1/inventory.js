@@ -51,6 +51,7 @@ app.get("/product/:productId", function(req, res) {
 // post inventory product
 app.post("/product", function(req, res) {
     var newProduct = req.body;
+    console.log(req.body);
     inventoryDB.insert(newProduct, function(err, product) {
       if (err) res.status(500).send(err);
       else res.send(product);
@@ -68,7 +69,7 @@ app.post("/product", function(req, res) {
   // Updates inventory product
   app.put("/product", function(req, res) {
     var productId = req.body._id;
-  
+  console.log(req.body);
     inventoryDB.update({ _id: productId }, req.body, {}, function(
       err,
       numReplaced,

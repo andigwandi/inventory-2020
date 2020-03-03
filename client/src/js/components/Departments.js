@@ -131,7 +131,7 @@ class DepartmentInventory extends Component {
           <br />
           <br />
 
-          <table class="table">
+          <table class="table table-bordered table-responsive table-striped">
             <thead>
               <tr>
                 <th scope="col">Name</th>

@@ -76,7 +76,7 @@ class Department extends Component {
                         <Modal.Title>Edit Departments</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                    <form className="form-horizontal" name="newProductForm">
+                    <form className="form-horizontal" name="newDepartmentForm">
                        
                         <div className="form-group">
                             <label className="col-md-4 control-label" for="name">
@@ -88,7 +88,7 @@ class Department extends Component {
                                 placeholder="Name"
                                 onChange={this.handleName}
                                 className="form-control"
-                                value={this.state.name}
+                                value={newName}
                             />
                             </div>
                         </div>

@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
+
+
+const HOST = "http://localhost:8001";
 
 class Product extends Component {
   constructor(props) {
@@ -9,12 +13,15 @@ class Product extends Component {
       name: "",
       price: 0,
       quantity: 0,
+      departments: [],
+      department: "",
       expdate: "",
       productModal: false
     };
+    
+    this.handleDepartment = this.handleDepartment.bind(this);
   }
   componentDidMount() {
-    
     this.setState({ barcode: this.props.barcode });
     this.setState({ newBarCode: this.props.barcode });
     this.setState({ name: this.props.name });
@@ -25,6 +32,14 @@ class Product extends Component {
     this.setState({ newQuantity: this.props.quantity });
     this.setState({ expdate: this.props.expdate });
     this.setState({ newexpdate: this.props.expdate });
+    this.setState({ department: this.props.department });
+    this.setState({ newdepartment: this.props.department });
+  
+      var url = HOST + `/api/v1/department/departments/active`;
+      axios.get(url).then(response => {
+        this.setState({ departments: response.data });
+      });
+  
   };
   
   handleBarcode = e => {
@@ -52,7 +67,8 @@ class Product extends Component {
       quantity: this.state.newQuantity,
       price: this.state.newPrice,
       _id: this.props._id,
-      expdate: this.props.newexpdate
+      expdate: this.props.newexpdate,
+      department: this.props.department
     };
 
     this.props.onEditProduct(editProduct);
@@ -61,6 +77,7 @@ class Product extends Component {
     this.setState({ quantity: this.state.newQuantity });
     this.setState({ price: this.state.newPrice });
     this.setState({ expdate: this.state.newexpdate });
+    this.setState({ department: this.state.newdepartment });
   };
 
   handleDeleteProduct = e => {
@@ -68,25 +85,45 @@ class Product extends Component {
     console.log("id", this.props._id);
     this.props.onDeleteProduct(this.props._id);
   };
+
+  handleDepartment = e => {
+    this.setState({ newdepartment: e.target.value });
+  };
   render() {
     const {
       newBarCode,
       newName,
       newPrice,
       newQuantity,
+      newexpdate,
+      newdepartment,
       barcode,
       name,
       price,
+      department,
       expdate,
       quantity
     } = this.state;
+
+    var { departments } = this.state;
+
+    var renderDepartment = () => {
+      if (departments.length === 0) {
+        return <option>No department</option>
+      } else {
+        return departments.map( department => (
+          <option key={department.name}>{department.name}</option>
+        ));
+      }
+    };
+
     return (
       <tr>
         <td>
           <a href=""> {barcode} </a>
         </td>
       <td> {name}  </td>
-        <td> ${price} </td> <td> {quantity} </td> <td> {expdate} </td>
+        <td> ${price} </td> <td> {quantity} </td> <td> {expdate} </td> <td>{department}</td>
         <td>
           <a
             className="btn btn-info"
@@ -177,11 +214,24 @@ class Product extends Component {
                   <input
                     name="expdate"
                     placeholder="Date Exp"
-                    className="form-control"
+                    className="form-control date"
                     onChange={this.handleExpDate}
-                    value={ expdate }
+                    value={ newexpdate }
                     type="date"
                   />
+                </div>
+              </div>
+              <div className="form-group">
+                <label
+                  className="col-md-4 control-label"
+                  for="departments"
+                >
+                  Department
+                </label>
+                <div className="col-md-4">
+                  <select id="departments" onChange={this.handleDepartment} value={department}>
+                   {renderDepartment()}
+                  </select>
                 </div>
               </div>
               <div className="form-group">

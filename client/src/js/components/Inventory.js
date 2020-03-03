@@ -20,7 +20,8 @@ class Inventory extends Component {
       snackMessage: "",
       quantity: "",
       price: "",
-      expdate: ""
+      expdate: "",
+      department: ""
     };
     this.handleNewProduct = this.handleNewProduct.bind(this);
     this.handleDeleteProduct = this.handleDeleteProduct.bind(this);
@@ -39,7 +40,7 @@ class Inventory extends Component {
       this.setState({ products: response.data });
     });
 
-    var url2 = HOST + `/api/v1/department/departments`;
+    var url2 = HOST + `/api/v1/department/departments/active`;
     axios.get(url2).then(response => {
       this.setState({ departments: response.data });
     });
@@ -53,7 +54,8 @@ class Inventory extends Component {
       name: this.state.name,
       quantity: this.state.quantity,
       price: this.state.price,
-      expdate: this.state.expdate
+      expdate: this.state.expdate,
+      department: this.state.department
     };
 
     axios
@@ -124,22 +126,31 @@ class Inventory extends Component {
     this.setState({ expdate: e.target.value })
   };
   handleDepartment = e => {
-    //this.setState({ departments = e.target.value })
+    this.setState({ department: e.target.value })
   };
 
   render() {
-    var { products, snackMessage } = this.state;
+    var { products, snackMessage, departments } = this.state;
 
     var renderProducts = () => {
       if (products.length === 0) {
         return <p>{products}</p>;
       } else {
         return products.map(product => (
-          <Product {...product} onEditProduct={this.handleEditProduct} onDeleteProduct={this.handleDeleteProduct}/>
+          <Product {...product} onEditProduct={this.handleEditProduct} onDeleteProduct={this.handleDeleteProduct} />
         ));
       }
     };
 
+    var renderDepartment = () => {
+      if (departments.length === 0) {
+        return <p>No department</p>;
+      } else {
+        return departments.map( department => (
+          <option key={department.name}>{department.name}</option>
+        ));
+      }
+    };
     return (
       <div>
         <Header />
@@ -154,7 +165,7 @@ class Inventory extends Component {
           <br />
           <br />
 
-          <table class="table">
+          <table class="table table-bordered table-striped table-responsive">
             <thead>
               <tr>
                 <th scope="col">Barcode</th>
@@ -233,6 +244,18 @@ class Inventory extends Component {
                   />
                 </div>
               </div>
+              <div className="form-group">
+                <label
+                  className="col-md-4 control-label"
+                  for="departments">
+                  Department
+                </label>
+                <div className="col-md-4">
+                  <select id="departments" onChange={this.handleDepartment} value={this.state.departments}>
+                      {renderDepartment()}
+                  </select>
+                </div>
+              </div>
               <div class="form-group">
                 <label class="col-md-4 control-label" for="expdate">
                   Date Expiry
@@ -266,6 +289,7 @@ class Inventory extends Component {
           </Modal.Footer>
         </Modal>
         <div id="snackbar">{snackMessage}</div>
+
       </div>
     );
   }
