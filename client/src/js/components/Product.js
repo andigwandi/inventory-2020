@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
+import moment from "moment";
 
 
 const HOST = "http://localhost:8001";
@@ -135,7 +136,9 @@ class Product extends Component {
           <a href=""> {barcode} </a>
         </td>
       <td> {name}  </td>
-        <td> €{price} </td> <td> {quantity} </td><td>{items}</td> <td> {expdate} </td> <td>{department}</td>
+        <td> € {price} </td> <td> {quantity} </td><td>{items}</td> 
+        <td>{department}</td>
+        <td class={(expdate> moment().format("YYYY-MM-DD")? "" : "bg-danger") }> {expdate}</td> 
         <td>
           <a
             className="btn btn-info"

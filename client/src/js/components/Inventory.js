@@ -67,7 +67,7 @@ class Inventory extends Component {
       .then(
         response =>
           this.setState({ snackMessage: "Product Added Successfully!" }),
-        this.handleSnackbar()
+          this.handleSnackbar()
       )
       .catch(err => {
         console.log(err),
@@ -79,14 +79,14 @@ class Inventory extends Component {
     axios
       .put(HOST + `/api/v1/inventory/product`, editProduct)
       .then(response => {
-        this.setState({ snackMessage: "Product Updated Successfully!" });
+        this.setState({ snackMessage: "Product Updated Successfully!" }),
         this.handleSnackbar();
         return true;
       })
       .catch(err => {
         console.log(err);
         this.setState({ snackMessage: "Product Update Failed!" }),
-          this.handleSnackbar();
+        this.handleSnackbar();
         return false;
       });
   };
@@ -101,8 +101,8 @@ class Inventory extends Component {
       })
       .catch(err => {
         console.log(err);
-        this.setState({ snackMessage: "Product Delete Failed!" }),
-          this.handleSnackbar();
+        this.setState({ snackMessage: "Product Delete Failed!" });
+        this.handleSnackbar();
         return false;
       });
   };
@@ -161,7 +161,14 @@ class Inventory extends Component {
     
     
     var renderExpiredProducts = () => {
-      // return <div class="solid"><p>Expiry</p></div>;
+      if (products.length === 0) {
+        return <p>{products}</p>;
+      } else {
+        var l = products.filter(x => x.expdate < moment().format("YYYY-MM-DD")).length;
+        return (
+          <div>Expired Products: <span class="badge badge-danger">{l}</span></div>
+          )
+      }
     };
 
     return (
