@@ -4,6 +4,7 @@ import Header from "./Header";
 import Product from "./Product";
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
+import moment from "moment";
 
 const HOST = "http://localhost:8001";
 
@@ -21,7 +22,8 @@ class Inventory extends Component {
       quantity: "",
       price: "",
       expdate: "",
-      department: ""
+      department: "",
+      items: 0
     };
     this.handleNewProduct = this.handleNewProduct.bind(this);
     this.handleDeleteProduct = this.handleDeleteProduct.bind(this);
@@ -32,6 +34,7 @@ class Inventory extends Component {
     this.handleSnackbar = this.handleSnackbar.bind(this);
     this.handleExpDate = this.handleExpDate.bind(this);
     this.handleDepartment = this.handleDepartment.bind(this);
+    this.handleItems = this.handleItems.bind(this);
 
   }
   componentWillMount() {
@@ -55,7 +58,8 @@ class Inventory extends Component {
       quantity: this.state.quantity,
       price: this.state.price,
       expdate: this.state.expdate,
-      department: this.state.department
+      department: this.state.department,
+      items: this.state.items
     };
 
     axios
@@ -115,6 +119,9 @@ class Inventory extends Component {
   handleQuantity = e => {
     this.setState({ quantity: e.target.value });
   };
+  handleItems = e => {
+    this.setState({ items: e.target.value });
+  };
   handleSnackbar = () => {
     var bar = document.getElementById("snackbar");
     bar.className = "show";
@@ -151,11 +158,19 @@ class Inventory extends Component {
         ));
       }
     };
+    
+    
+    var renderExpiredProducts = () => {
+      // return <div class="solid"><p>Expiry</p></div>;
+    };
+
     return (
       <div>
         <Header />
 
         <div class="container">
+          {renderExpiredProducts()}
+
           <a
             class="btn btn-success pull-right"
             onClick={() => this.setState({ productFormModal: true })}
@@ -170,8 +185,9 @@ class Inventory extends Component {
               <tr>
                 <th scope="col">Barcode</th>
                 <th scope="col">Name</th>
-                <th scope="col">Price</th>
+                <th scope="col">Unit Price</th>
                 <th scope="col">Quantity on Hand</th>
+                <th scope="col">Items per box</th>
                 <th scope="col">Date Expiry</th>
                 <th scope="col">Department</th>
                 <th />
@@ -217,12 +233,12 @@ class Inventory extends Component {
               </div>
               <div class="form-group">
                 <label class="col-md-4 control-label" for="price">
-                  Price
+                Unit Price
                 </label>
                 <div class="col-md-4">
                   <input
                     name="price"
-                    placeholder="Price"
+                    placeholder="Unit Price"
                     class="form-control"
                     onChange={this.handlePrice}
                     type="number"
@@ -241,6 +257,25 @@ class Inventory extends Component {
                     placeholder="Quantity On Hand"
                     onChange={this.handleQuantity}
                     class="form-control"
+                    type="number"
+                    step="any"
+                    min="0"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="items_per_box">
+                  Items per box
+                </label>
+                <div class="col-md-4">
+                  <input
+                    name="items_per_box"
+                    placeholder="Items per box"
+                    onChange={this.handleItems}
+                    class="form-control"
+                    type="number"
+                    step="any"
+                    min="0"
                   />
                 </div>
               </div>

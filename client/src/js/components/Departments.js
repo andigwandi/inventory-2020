@@ -100,10 +100,8 @@ class DepartmentInventory extends Component {
     this.setState({ name: e.target.value });
   };
   
-  handleState = () => {
-    this.setState( activestate =>({
-        isActive: !activestate.isActive
-    }));
+  handleState = e => {
+    this.setState({ active: e.target.checked });
   };
 
   render() {

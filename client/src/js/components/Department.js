@@ -11,27 +11,26 @@ class Department extends Component {
       };
     }
     componentDidMount() {
-
         this.setState({ name: this.props.name });
         this.setState({ active: this.props.active });
+        this.setState({ newName: this.props.name });
+        this.setState({ newIsActive: this.props.active });
     };
 
     handleName = e => {
         this.setState({ newName: e.target.value });
     };
-    handleState = () => {
-        this.setState( activestate =>({
-            active: !activestate.active
-        }));
+    handleState = e => {
+        this.setState({newIsActive: e.target.checked });
     };
     handleDepartment = e => {
         e.preventDefault();
         this.setState({ departmentModal: false });
         console.log("id", this.props._id);
         var editDepartment = {
-            name: this.state.newName,
+            name: this.state.newName?this.state.newName:this.props.name,
             _id: this.props._id,
-            active: this.state.active
+            active: this.state.newIsActive?true:false
         };
 
         this.props.onEditDepartment(editDepartment);
@@ -49,7 +48,7 @@ class Department extends Component {
             name,
             active,
             newName,
-            newIsActive
+            newIsActive,
         } = this.state;
         return(
             <tr>
@@ -77,7 +76,6 @@ class Department extends Component {
                     </Modal.Header>
                     <Modal.Body>
                     <form className="form-horizontal" name="newDepartmentForm">
-                       
                         <div className="form-group">
                             <label className="col-md-4 control-label" for="name">
                             Name
@@ -103,7 +101,7 @@ class Department extends Component {
                                 class="form-check-input"
                                 type="checkbox" 
                                     onChange={this.handleState} 
-                                    checked={this.state.active}
+                                    checked={newIsActive}
                                 />
                             </div>
                         </div>

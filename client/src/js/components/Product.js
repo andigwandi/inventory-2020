@@ -16,7 +16,8 @@ class Product extends Component {
       departments: [],
       department: "",
       expdate: "",
-      productModal: false
+      productModal: false,
+      items: 0
     };
     
     this.handleDepartment = this.handleDepartment.bind(this);
@@ -34,6 +35,8 @@ class Product extends Component {
     this.setState({ newexpdate: this.props.expdate });
     this.setState({ department: this.props.department });
     this.setState({ newdepartment: this.props.department });
+    this.setState({ items: this.props.items });
+    this.setState({ newditems: this.props.items });
   
       var url = HOST + `/api/v1/department/departments/active`;
       axios.get(url).then(response => {
@@ -57,6 +60,14 @@ class Product extends Component {
   handleQuantity = e => {
     this.setState({ newQuantity: e.target.value });
   };
+  handleDepartment = e => {
+    this.setState({ newdepartment: e.target.value });
+  };
+  
+  handleItems = e => {
+    this.setState({ newditems: e.target.value });
+  };
+
   handleProduct = e => {
     e.preventDefault();
     this.setState({ productModal: false });
@@ -67,8 +78,9 @@ class Product extends Component {
       quantity: this.state.newQuantity,
       price: this.state.newPrice,
       _id: this.props._id,
-      expdate: this.props.newexpdate,
-      department: this.props.department
+      expdate: this.state.newexpdate,
+      department: this.state.newdepartment,
+      items: this.state.newditems
     };
 
     this.props.onEditProduct(editProduct);
@@ -78,6 +90,7 @@ class Product extends Component {
     this.setState({ price: this.state.newPrice });
     this.setState({ expdate: this.state.newexpdate });
     this.setState({ department: this.state.newdepartment });
+    this.setState({ items: this.state.newditems });
   };
 
   handleDeleteProduct = e => {
@@ -86,9 +99,6 @@ class Product extends Component {
     this.props.onDeleteProduct(this.props._id);
   };
 
-  handleDepartment = e => {
-    this.setState({ newdepartment: e.target.value });
-  };
   render() {
     const {
       newBarCode,
@@ -102,7 +112,9 @@ class Product extends Component {
       price,
       department,
       expdate,
-      quantity
+      quantity,
+      items,
+      newditems
     } = this.state;
 
     var { departments } = this.state;
@@ -123,7 +135,7 @@ class Product extends Component {
           <a href=""> {barcode} </a>
         </td>
       <td> {name}  </td>
-        <td> ${price} </td> <td> {quantity} </td> <td> {expdate} </td> <td>{department}</td>
+        <td> €{price} </td> <td> {quantity} </td><td>{items}</td> <td> {expdate} </td> <td>{department}</td>
         <td>
           <a
             className="btn btn-info"
@@ -174,12 +186,12 @@ class Product extends Component {
               </div>
               <div className="form-group">
                 <label className="col-md-4 control-label" for="price">
-                  Price
+                  Unit Price
                 </label>
                 <div className="col-md-4">
                   <input
                     name="price"
-                    placeholder="Price"
+                    placeholder="Unit Price"
                     className="form-control"
                     onChange={this.handlePrice}
                     value={newPrice}
@@ -203,6 +215,29 @@ class Product extends Component {
                     onChange={this.handleQuantity}
                     value={newQuantity}
                     className="form-control"
+                    type="number"
+                    step="any"
+                    min="0"
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <label
+                  className="col-md-4 control-label"
+                  for="items_per_box"
+                >
+                  Items Per Box
+                </label>
+                <div className="col-md-4">
+                  <input
+                    name="items_per_box"
+                    placeholder="Items Per Box"
+                    onChange={this.handleItems}
+                    value={newditems}
+                    className="form-control"
+                    type="number"
+                    step="any"
+                    min="0"
                   />
                 </div>
               </div>
