@@ -111,18 +111,25 @@ nav-menu h1 {
 ul.nav-menu {
 	margin-top: 25px;
 	margin-bottom: 45px;
+	background-color: rgb(76, 205, 238);
 }
 
 ul.nav-menu li {
 	display: inline;
 	margin-left: 25px;
 	margin-right: 25px;
-	text-decoration: underline;
 }
-
+ul.nav-menu li:hover {
+	display: inline;
+	margin-left: 25px;
+	margin-right: 25px;
+	background-color: rgb(47, 186, 221);
+}
 ul.nav-menu li a {
 	list-style-type: none;
  	display: inline;
+	color: white;
+	text-decoration: none;
 }
 
 ul.nav-menu li a.active {
@@ -199,3 +206,21 @@ ul.nav-menu li a h3 {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+@media all and (min-width: 480px) {
+	.Login {
+	  padding: 60px 0;
+	}
+  
+	.Login form {
+	  margin: 0 auto;
+	  max-width: 320px;
+	}
+  }
+
+  h1 {
+	color: #999999;
+	font-family: arial, sans-serif;
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 1px;
+	} 
