@@ -187,7 +187,7 @@ class Inventory extends Component {
           <br />
           <br />
 
-          <table class="table table-bordered table-striped table-responsive">
+          <table class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th scope="col">Barcode</th>

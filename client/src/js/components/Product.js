@@ -92,6 +92,7 @@ class Product extends Component {
     this.setState({ expdate: this.state.newexpdate });
     this.setState({ department: this.state.newdepartment });
     this.setState({ items: this.state.newditems });
+
   };
 
   handleDeleteProduct = e => {
