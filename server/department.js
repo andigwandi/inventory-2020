@@ -33,7 +33,7 @@ app.get("/department/:departmentId", function (req, res) {
 });
 
 // GET all department departments
-app.get("/departments", function (req, res) {
+app.get("/department/all", function (req, res) {
   departmentDB.find({}, function (err, docs) {
     console.log("sending all departments");
     res.send(docs);
@@ -42,7 +42,7 @@ app.get("/departments", function (req, res) {
 
 
 // GET all active department departments
-app.get("/departments/active", function (req, res) {
+app.get("/department/active", function (req, res) {
   departmentDB.find({active: true}, function (err, docs) {
     console.log("sending all active departments");
     res.send(docs);

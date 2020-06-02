@@ -31,8 +31,8 @@ app.get("/", function(req, res) {
   res.send(" Inventory web app running.");
 });
 
-app.use("/api/v1/inventory", require("./api/v1/inventory"));
-app.use("/api/v1/department", require("./api/v1/department"));
+app.use("inventory", require("./inventory"));
+app.use("department", require("./department"));
 
 
 io.on("connection", socket => {

@@ -1,7 +1,5 @@
 # dependencies
-/server/node_modules
-
-/client/node_modules
+/**/node_modules
 
 # testing
 /coverage
@@ -20,4 +18,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 server/server/databases
-.vscode/launch.json
+/.vscode
+
+/.github

@@ -38,7 +38,7 @@ class Inventory extends Component {
 
   }
   componentWillMount() {
-    var url = HOST + `/api/v1/inventory/products`;
+    var url = HOST + `/api/v1/inventory/product/all`;
     axios.get(url).then(response => {
       this.setState({ products: response.data });
     });
@@ -141,7 +141,7 @@ class Inventory extends Component {
 
     var renderProducts = () => {
       if (products.length === 0) {
-        return <p>{products}</p>;
+        return "";
       } else {
         return products.map(product => (
           <Product {...product} onEditProduct={this.handleEditProduct} onDeleteProduct={this.handleDeleteProduct} />

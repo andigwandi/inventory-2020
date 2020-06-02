@@ -32,20 +32,12 @@ app.get("/product/:productId", function(req, res) {
   });
   
   // GET all inventory products
-  app.get("/products", function(req, res) {
+  app.get("/product/all", function(req, res) {
     inventoryDB.find({}, function(err, docs) {
       console.log("sending inventory products");
       res.send(docs);
     });
   });
-  
-  // GET all inventory products
-  // app.get("/products/expiry", function(req, res) {
-  //   inventoryDB.find({ expdate: { $lt: { $gte: moment().startOf("month").toDate().toJSON() } }}, function(err, docs) {
-  //     console.log("sending inventory products");
-  //     res.send(docs);
-  //   });
-  // });
   
 
 // post inventory product

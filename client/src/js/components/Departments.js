@@ -29,7 +29,7 @@ class DepartmentInventory extends Component {
   }
 
   componentDidMount() {
-    var url = HOST + `/api/v1/department/departments`;
+    var url = HOST + `/api/v1/department/department/all`;
     axios.get(url).then(response => {
       this.setState({ departments: response.data });
     });
@@ -109,7 +109,7 @@ class DepartmentInventory extends Component {
 
     var renderDepartments = () => {
       if(departments.length === 0) {
-        return <p>{departments}</p>
+        return ""
       } else {
         return departments.map(department => (
           <Department {...department} onEditDepartment={this.handleEditDepartment} onDeleteDepartment={this.handleDeleteDepartment} />
