@@ -1,9 +1,7 @@
-{"barcode":"12311123","name":"sasd  de","quantity":"12","price":"1","_id":"D2gQtnhyy7iCTHEL","expdate":"2020-03-31","department":"Wine","items":"100"}
 {"barcode":"7245","name":"dgsdfg","quantity":"13423","price":"1234","_id":"IJ3qIRmRXSr4Z0ic","expdate":"2020-03-26","department":"Food","items":"10"}
 {"barcode":"2342","name":"bnawe","quantity":"1212","price":"121","_id":"JlEsdpnWQoe6IzAi","expdate":"2020-03-19","department":"Food","items":"25"}
 {"barcode":"534545345","name":"sdgfsef","quantity":"1111","price":"11","_id":"SzSz3J8zhYP4QAus","expdate":"2020-03-27","department":"Food","items":"12"}
 {"barcode":"123123123","name":"soms","quantity":"10","price":"22","expdate":"2020-06-26","department":"Grocery","items":"10","_id":"UkvHIJSXzpDxb4in"}
-{"barcode":"1123","name":"112244","quantity":"111","price":"1","_id":"vGr63btySZeZSs9Z","expdate":"2020-03-25","department":"Beer","items":"6"}
-{"barcode":"12311123","name":"sasd  de","quantity":"12","price":"1","_id":"D2gQtnhyy7iCTHEL","expdate":"2020-01-15","department":"Wine","items":"100"}
-{"$$deleted":true,"_id":"D2gQtnhyy7iCTHEL"}
 {"barcode":"1234151","name":"someting","quantity":"21","price":"1","expdate":"2020-03-19","department":"","items":"2","_id":"X5DvA5W0gQxameNX"}
+{"barcode":"1123","name":"112244","quantity":"111","price":"1","_id":"vGr63btySZeZSs9Z","expdate":"2020-03-25","department":"Beer","items":"6"}
+{"barcode":"2342","name":"bnawe","quantity":"1212","price":"121","_id":"JlEsdpnWQoe6IzAi","expdate":"2021-02-26","department":"Food","items":"25"}

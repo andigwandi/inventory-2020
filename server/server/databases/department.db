@@ -2,5 +2,4 @@
 {"name":"Grocery","_id":"ETyxR3gL4NJ8TgnL","active":true}
 {"name":"Beer","_id":"PYcBpEFjinycXTCo","active":true}
 {"name":"Food","active":true,"_id":"bQmSuE11qIajQg5K"}
-{"name":"Medicine","active":false,"_id":"h4Bsvcs3evOY0uOf"}
 {"name":"Medicine","_id":"h4Bsvcs3evOY0uOf","active":true}
