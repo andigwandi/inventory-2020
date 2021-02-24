@@ -133,7 +133,7 @@ class DepartmentInventory extends Component {
             <thead>
               <tr>
                 <th scope="col">Name</th>
-                <th scope="col">isActive</th>
+                <th scope="col">State</th>
                 <th />
               </tr>
             </thead>

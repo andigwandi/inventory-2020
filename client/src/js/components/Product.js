@@ -20,7 +20,7 @@ class Product extends Component {
       productModal: false,
       items: 0
     };
-    
+
     this.handleDepartment = this.handleDepartment.bind(this);
   }
   componentDidMount() {
@@ -38,14 +38,14 @@ class Product extends Component {
     this.setState({ newdepartment: this.props.department });
     this.setState({ items: this.props.items });
     this.setState({ newditems: this.props.items });
-  
-      var url = HOST + `/api/v1/department/departments/active`;
-      axios.get(url).then(response => {
-        this.setState({ departments: response.data });
-      });
-  
+
+    var url = HOST + `/api/v1/department/departments/active`;
+    axios.get(url).then(response => {
+      this.setState({ departments: response.data });
+    });
+
   };
-  
+
   handleBarcode = e => {
     this.setState({ newBarCode: e.target.value });
   };
@@ -56,7 +56,7 @@ class Product extends Component {
     this.setState({ newPrice: e.target.value });
   };
   handleExpDate = e => {
-    this.setState({ newexpdate : e.target.value });
+    this.setState({ newexpdate: e.target.value });
   };
   handleQuantity = e => {
     this.setState({ newQuantity: e.target.value });
@@ -64,7 +64,7 @@ class Product extends Component {
   handleDepartment = e => {
     this.setState({ newdepartment: e.target.value });
   };
-  
+
   handleItems = e => {
     this.setState({ newditems: e.target.value });
   };
@@ -124,7 +124,7 @@ class Product extends Component {
       if (departments.length === 0) {
         return <option>No department</option>
       } else {
-        return departments.map( department => (
+        return departments.map(department => (
           <option key={department.name}>{department.name}</option>
         ));
       }
@@ -135,10 +135,10 @@ class Product extends Component {
         <td>
           <a href=""> {barcode} </a>
         </td>
-      <td> {name}  </td>
-        <td> € {price} </td> <td> {quantity} </td><td>{items}</td> 
+        <td> {name}  </td>
+        <td> € {price} </td> <td> {quantity} </td><td>{items}</td>
         <td>{department}</td>
-        <td class={(expdate> moment().format("YYYY-MM-DD")? "" : "bg-danger") }> {expdate}</td> 
+        <td class={(expdate > moment().format("YYYY-MM-DD") ? "" : "quadrat")}> {expdate}</td>
         <td>
           <a
             className="btn btn-info"
@@ -159,9 +159,9 @@ class Product extends Component {
           </Modal.Header>
           <Modal.Body>
             <form className="form-horizontal" name="newProductForm">
-            <div className="form-group">
+              <div className="form-group">
                 <label className="col-md-4 control-label" for="barcode">
-                Barcode
+                  Barcode
                 </label>
                 <div className="col-md-4">
                   <input
@@ -254,7 +254,7 @@ class Product extends Component {
                     placeholder="Date Exp"
                     className="form-control date"
                     onChange={this.handleExpDate}
-                    value={ newexpdate }
+                    value={newexpdate}
                     type="date"
                   />
                 </div>
@@ -268,7 +268,7 @@ class Product extends Component {
                 </label>
                 <div className="col-md-4">
                   <select id="departments" onChange={this.handleDepartment} value={department}>
-                   {renderDepartment()}
+                    {renderDepartment()}
                   </select>
                 </div>
               </div>

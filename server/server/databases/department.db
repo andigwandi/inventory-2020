@@ -3,3 +3,6 @@
 {"name":"Beer","_id":"PYcBpEFjinycXTCo","active":true}
 {"name":"Food","active":true,"_id":"bQmSuE11qIajQg5K"}
 {"name":"Medicine","_id":"h4Bsvcs3evOY0uOf","active":true}
+{"name":"Wines","_id":"1XXY3CHUvADDmLbk","active":true}
+{"name":"Wine","_id":"1XXY3CHUvADDmLbk","active":true}
+{"name":"Grocery","_id":"ETyxR3gL4NJ8TgnL","active":false}

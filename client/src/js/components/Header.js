@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 // The Header creates links that can be used to navigate
 // between routes.
+
 const Header = () => (
-  <div className="text-center">
+  <div className="top-header text-center">
     <h1>
       <a href="/#/">Inventory System</a>
     </h1>
@@ -14,7 +15,7 @@ const Header = () => (
         <Link to="/inventory">Inventory</Link>
       </li>
       <li className="lead">
-        <Link to="/departments">departments</Link>
+        <Link to="/departments">Departments</Link>
       </li>
     </ul>
   </div>

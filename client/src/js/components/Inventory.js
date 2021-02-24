@@ -164,9 +164,9 @@ class Inventory extends Component {
       if (products.length === 0) {
         return <p>{products}</p>;
       } else {
-        var l = products.filter(x => x.expdate < moment().format("YYYY-MM-DD")).length;
+        var l = products.filter(x => x.expdate <= moment().format("YYYY-MM-DD")).length;
         return (
-          <div>Expired Products: <span class="badge badge-danger">{l}</span></div>
+          <div><div class="glyphicon glyphicon-exclamation-sign"></div>Expired Products: <span class="quadrat">&nbsp;{l}&nbsp;</span></div>
           )
       }
     };
@@ -176,6 +176,7 @@ class Inventory extends Component {
         <Header />
 
         <div class="container">
+          <div class="expired-product-div">
           {renderExpiredProducts()}
 
           <a
@@ -186,9 +187,9 @@ class Inventory extends Component {
           </a>
           <br />
           <br />
-
-          <table class="table table-bordered table-striped table-responsive">
-            <thead>
+          </div>
+          <table class="table table-bordered table-dark table-responsive ">
+            <thead class="thead-dark">
               <tr>
                 <th scope="col">Barcode</th>
                 <th scope="col">Name</th>
