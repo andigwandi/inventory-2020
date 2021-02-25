@@ -6,7 +6,7 @@ import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 import moment from "moment";
 
-const HOST = "http://localhost:8001";
+const HOST = process.env.REACT_APP_API_ENDPOINT;
 
 class Inventory extends Component {
   constructor(props) {

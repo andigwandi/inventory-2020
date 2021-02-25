@@ -5,7 +5,7 @@ import Department from "./Department"
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 
-const HOST = "http://localhost:8001";
+const HOST = process.env.REACT_APP_API_ENDPOINT;
 
 class DepartmentInventory extends Component {
   constructor(props) {
