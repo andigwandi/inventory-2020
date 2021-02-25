@@ -14,4 +14,8 @@
 {"barcode":"123123123","name":"soms","quantity":"10","price":"22","_id":"UkvHIJSXzpDxb4in","expdate":"2021-02-26","department":"Grocery","items":"10"}
 {"barcode":"1234151","name":"someting","quantity":"21","price":"1","_id":"X5DvA5W0gQxameNX","expdate":"2021-02-24","department":"Food","items":"2"}
 {"barcode":"1234151","name":"someting","quantity":"21","price":"1","_id":"X5DvA5W0gQxameNX","expdate":"2021-02-24","department":"Wine","items":"2"}
-{"barcode":"534545345","name":"sdgfsef","quantity":"1111","price":"11","_id":"SzSz3J8zhYP4QAus","expdate":"2021-02-24","department":"Food","items":"12"}
+{"barcode":"1234151","name":"someting","quantity":"21","price":"1","_id":"X5DvA5W0gQxameNX","expdate":"2020-04-19","department":"Food","items":"2"}
+{"barcode":"1234151","name":"someting","quantity":"21","price":"1","_id":"X5DvA5W0gQxameNX","expdate":"2020-04-19","department":"Medicine","items":"2"}
+{"barcode":"1234151","name":"someting","quantity":"21","price":"1","_id":"X5DvA5W0gQxameNX","expdate":"2020-04-01","department":"Medicine","items":"2"}
+{"barcode":"1234151","name":"someting","quantity":"21","price":"1","_id":"X5DvA5W0gQxameNX","expdate":"2020-02-20","department":"Medicine","items":"2"}
+
